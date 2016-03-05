@@ -6,6 +6,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('orgs', {});
+  this.route('org', function() {
+    this.route('repos');
+    this.route('repo');
+  });
 });
 
 export default Router;
