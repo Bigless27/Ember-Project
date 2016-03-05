@@ -6,10 +6,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('orgs', {});
+  this.route('orgs', {}); // /orgs
   this.route('org', {path: 'org/:id'},function() {
     this.route('repos', {});
-    this.route('repo', {});
+    this.route('repo', {}, function() {
+      this.route('contributors');
+      this.route('issues');
+    }); // org/jquery/jquery-ui
   });
 });
 
