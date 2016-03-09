@@ -6,9 +6,16 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  //List of orgs
   this.route('orgs', {}); // /orgs
+
+  //Individual org
   this.route('org', {path: 'org/:id'},function() {
+
+    //List of repos
     this.route('repos', {});
+
+    //Individual repos
     this.route('repo', {path: ':repoid'}, function() {
       this.route('contributors');
       this.route('issues');
